@@ -32,7 +32,6 @@ class CatController extends Controller
     {
         DB::table('cats')->insert([
             'name' => $request->name,
-            'age' => $request->age,
             'breed' => $request->breed,
             'age' => $request->age,
             'ownerName' => $request->ownerName,
@@ -49,7 +48,9 @@ class CatController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return view('cats.show', [
+            'cat' => DB::table('cats')->where('id', $id)->first()
+        ]);
     }
 
     /**
@@ -75,7 +76,7 @@ class CatController extends Controller
             'age' => $request->age,
             'ownerName' => $request->ownerName,
             'ownerEmail' => $request->ownerEmail,
-            'vaccinated' => $request->vaccinated,
+            'vaccinated' => $request->vaccinated ? 1 : 0,
             'image_url' => $request->image_url
         ]);
 

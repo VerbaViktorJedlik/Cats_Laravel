@@ -39,6 +39,11 @@
             <input type="url" class="form-control" id="image_url" name="image_url" value="{{ $cat->image_url }}">
         </div>
 
+        <div class="mb-3 col-md-4" >
+            <label for="vaccinated" class="form-label">Vaccinated</label>
+            <input type="checkbox" class="form-check-input" id="vaccinated" name="vaccinated" {{ $cat->vaccinated ? 'checked' : '' }}>
+        </div>
+
 
 
         <div class="d-flex gap-2">
